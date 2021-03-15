@@ -20,7 +20,6 @@ export default (req: any, store: Store<any, AnyAction>) => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet"  href="style.css"/>
           <title>React App</title>
-
         </head>
       <body>
         <div id="root">${content}</div>
