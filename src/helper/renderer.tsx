@@ -30,7 +30,7 @@ export default (req: any, store: Store<any, AnyAction>) => {
             <div id="root">${content}</div>
               ${
                 process.env.NODE_ENV == 'development'
-                  ? `<script src="/reload/reload.js"></script>`
+                  ? `<script src=\"${process.env.BROWSER_REFRESH_URL}\"></script>`
                   : ``
               }
             <script>
