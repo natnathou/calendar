@@ -6,13 +6,13 @@
   "scripts": {
     "dev": "npm-run-all --parallel  dev:*",
     "dev:build-sass": "sass --watch ./src/client/sass/main.scss:./public/style.css",
-    "dev:build-client": "webpack --config webpack.client.js --watch --mode development",
-    "dev:build-server": "webpack --config webpack.server.js --watch --mode development",
+    "dev:build-client": "webpack --config webpack.client.js --watch --mode=development",
+    "dev:build-server": "webpack --config webpack.server.js --watch --mode=development",
     "dev:start": "browser-refresh ./build/bundle.js",
     "start": "node ./build/bundle.js",
     "build:build-sass": "sass ./src/client/sass/main.scss:./public/style.css",
-    "build:build-client": "webpack --config webpack.client.js --mode production",
-    "build:build-server": "webpack --config webpack.server.js --mode production",
+    "build:build-client": "webpack --config webpack.client.js --mode=production",
+    "build:build-server": "webpack --config webpack.server.js --mode=production",
     "heroku-postbuild": "npm-run-all --sequential build:*"
   },
   "keywords": [],
