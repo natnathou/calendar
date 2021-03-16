@@ -1,14 +1,18 @@
 import React from 'react';
 import serialize from 'serialize-javascript';
-import App from '../client/App';
 import { renderToString } from 'react-dom/server';
 import { AnyAction, Store } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router';
+import Routes from '../client/Routes';
+import { renderRoutes } from 'react-router-config';
 
 export default (req: any, store: Store<any, AnyAction>) => {
   const content = renderToString(
     <Provider store={store}>
-      <App />
+      <StaticRouter location={req.url} context={{}}>
+        {renderRoutes(Routes)}
+      </StaticRouter>
     </Provider>
   );
 
@@ -18,7 +22,6 @@ export default (req: any, store: Store<any, AnyAction>) => {
       <html lang="en">
         <head>
           <meta charset="utf-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet"  href="style.css"/>
           <title>React App</title>

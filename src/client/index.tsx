@@ -1,10 +1,12 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { BrowserRouter } from 'react-router-dom';
 import reducers from './reducers';
+import Routes from './Routes';
 
 declare global {
   interface Window {
@@ -22,7 +24,7 @@ export type AppDispatch = typeof store.dispatch;
 
 ReactDOM.hydrate(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>{renderRoutes(Routes)}</BrowserRouter>
   </Provider>,
   document.querySelector('#root')
 );

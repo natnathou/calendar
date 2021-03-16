@@ -1,12 +1,15 @@
 import React from 'react';
-import Counter from './components/Counter';
+import { renderRoutes, RouteConfigComponentProps } from 'react-router-config';
 
-const App = () => {
+const App = ({ route }: RouteConfigComponentProps<any>) => {
   return (
     <div>
-      <Counter />
+      This c is an Header...
+      <div>{renderRoutes(route?.routes)}</div>
     </div>
   );
 };
 
-export default App;
+export default {
+  component: App,
+};
