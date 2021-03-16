@@ -12,27 +12,29 @@ export default (req: any, store: Store<any, AnyAction>) => {
     </Provider>
   );
 
-  let html = `    
+  let html = `
+  <!DOCTYPE html>
     <html>
       <html lang="en">
         <head>
           <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet"  href="style.css"/>
           <title>React App</title>
         </head>
-      <body>
-        <div id="root">${content}</div>
-        ${
-          process.env.NODE_ENV == 'development'
-            ? `<script src="/reload/reload.js"></script>`
-            : ``
-        }
-        <script>
-          window.INITIAL_STATE = ${serialize(store.getState())}
-        </script>
-        <script src="client.js"></script>
-            </body>
+          <body>
+            <div id="root">${content}</div>
+              ${
+                process.env.NODE_ENV == 'development'
+                  ? `<script src="/reload/reload.js"></script>`
+                  : ``
+              }
+            <script>
+              window.INITIAL_STATE = ${serialize(store.getState())}
+            </script>
+            <script src="client.js"></script>
+        </body>
       </html>
      `;
 
