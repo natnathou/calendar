@@ -4,7 +4,7 @@ const baseConfig = require('./webpack.base.js');
 
 const config = {
   entry: './src/client/index.tsx',
-
+  devtool: 'source-map',
   output: {
     filename: 'client.js',
     path: path.resolve(__dirname, 'public'),

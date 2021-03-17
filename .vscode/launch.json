@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:3000",
+        },
+        {
+            "name": "Node",
+            "request": "launch",
+            "type": "node",
+            "runtimeExecutable": "npm",
+             "runtimeArgs": ["run-script", "start"],
+        }
+    ],
+    "compounds": [
+        {
+          "name": "All",
+          "configurations": ["Node", "Chrome"],
+        }
+        
+    ]
+}

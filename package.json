@@ -13,7 +13,8 @@
     "build:build-sass": "sass ./src/client/sass/main.scss:./public/style.css",
     "build:build-client": "webpack --config webpack.client.js --mode=production",
     "build:build-server": "webpack --config webpack.server.js --mode=production",
-    "heroku-postbuild": "npm-run-all --sequential build:*"
+    "heroku-postbuild": "npm-run-all --sequential build:*",
+    "debug:node-in-chrome": "node --inspect-brk=9229 ./build/bundle.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "@reduxjs/toolkit": "^1.5.0",
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",

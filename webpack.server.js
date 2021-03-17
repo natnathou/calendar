@@ -5,6 +5,7 @@ const { merge } = require('webpack-merge');
 
 const config = {
   target: 'node',
+  devtool: 'source-map',
   entry: './src/index.ts',
   externals: [nodeExternals()],
 

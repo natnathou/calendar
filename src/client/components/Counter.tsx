@@ -36,9 +36,7 @@ const _Counter = ({
         <input
           type='text'
           value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-          }}
+          onChange={(e) => setInput(e.target.value)}
         />
         <button onClick={() => SetAmount(parseInt(input))}>Set</button>
       </form>
@@ -51,8 +49,10 @@ const mapStateToProps = ({ counter }: RootState) => {
   return { counter };
 };
 
-export default connect(mapStateToProps, {
-  increment,
-  decrement,
-  SetAmount,
-})(_Counter);
+export default {
+  component: connect(mapStateToProps, {
+    increment,
+    decrement,
+    SetAmount,
+  })(_Counter),
+};
