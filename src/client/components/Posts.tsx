@@ -1,7 +1,7 @@
-import { AsyncThunk } from '@reduxjs/toolkit';
+import { AsyncThunk, Dispatch } from '@reduxjs/toolkit';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { RootState } from '..';
+import { AppDispatch, RootState } from '..';
 
 import { PostState, fetchUserById, Post } from '../reducers/apiSlice';
 
@@ -27,6 +27,15 @@ const mapStateToProps = ({ api }: RootState) => {
   return { api };
 };
 
-export default connect(mapStateToProps, {
-  fetchUserById,
-})(Post);
+const loadData = async (dispatch: any) => {
+  console.log('ds loasddata');
+  console.log(dispatch);
+  await dispatch(fetchUserById());
+};
+
+export default {
+  component: connect(mapStateToProps, {
+    fetchUserById,
+  })(Post),
+  loadData,
+};

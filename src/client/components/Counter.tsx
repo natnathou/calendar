@@ -28,18 +28,16 @@ const _Counter = ({
 }: CounterProps) => {
   const [input, setInput] = useState('');
 
+  const handleTape = (e: React.ChangeEvent<HTMLInputElement>) => {
+    debugger;
+    setInput(e.target.value);
+  };
   return (
     <div>
       <button onClick={() => increment()}>Increment</button>
       <button onClick={() => decrement()}>Decrement</button>
       <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          type='text'
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-          }}
-        />
+        <input type='text' value={input} onChange={handleTape} />
         <button onClick={() => SetAmount(parseInt(input))}>Set</button>
       </form>
       <div>Value: {counter.value}</div>
@@ -51,8 +49,10 @@ const mapStateToProps = ({ counter }: RootState) => {
   return { counter };
 };
 
-export default connect(mapStateToProps, {
-  increment,
-  decrement,
-  SetAmount,
-})(_Counter);
+export default {
+  component: connect(mapStateToProps, {
+    increment,
+    decrement,
+    SetAmount,
+  })(_Counter),
+};

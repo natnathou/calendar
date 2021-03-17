@@ -7,8 +7,8 @@ const Routes: RouteConfig[] = [
   {
     ...App,
     routes: [
-      { component: Counter, path: '/counter', exact: true },
-      { component: Posts, path: '/posts', exact: true },
+      { ...Counter, path: '/counter', exact: true },
+      { ...Posts, path: '/posts', exact: true },
     ],
   },
 ];
