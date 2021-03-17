@@ -5,7 +5,6 @@ import createStore from './helper/createStore';
 import renderer from './helper/renderer';
 
 const SERVER_PORT = process.env.PORT || 3000;
-
 const app = express();
 
 app.use(express.static('public'));
@@ -19,7 +18,6 @@ app.get('*', (req: Request, res: Response) => {
       if (promise) {
         return new Promise((resolve, reject) => {
           promise.then(resolve).catch(resolve);
-          console.log(store.getState());
         });
       }
     });

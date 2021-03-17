@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export interface Post {
   userId: string;
@@ -11,8 +12,10 @@ export interface PostState {
 }
 
 export const fetchUserById = createAsyncThunk('api/fetchById', async () => {
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
-  return (await response.json()) as Post[];
+  const response = await axios.get<Post[]>(
+    `https://jsonplaceholder.typicode.com/posts`
+  );
+  return response.data as Post[];
 });
 
 const initialState: PostState = {

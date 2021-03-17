@@ -1,4 +1,4 @@
-import { matchRoutes, renderRoutes, RouteConfig } from 'react-router-config';
+import { RouteConfig } from 'react-router-config';
 import App from './App';
 import Counter from './components/Counter';
 import Posts from './components/Posts';

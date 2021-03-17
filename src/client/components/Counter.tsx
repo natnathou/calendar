@@ -28,16 +28,16 @@ const _Counter = ({
 }: CounterProps) => {
   const [input, setInput] = useState('');
 
-  const handleTape = (e: React.ChangeEvent<HTMLInputElement>) => {
-    debugger;
-    setInput(e.target.value);
-  };
   return (
     <div>
       <button onClick={() => increment()}>Increment</button>
       <button onClick={() => decrement()}>Decrement</button>
       <form onSubmit={(e) => e.preventDefault()}>
-        <input type='text' value={input} onChange={handleTape} />
+        <input
+          type='text'
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
         <button onClick={() => SetAmount(parseInt(input))}>Set</button>
       </form>
       <div>Value: {counter.value}</div>

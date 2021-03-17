@@ -4,7 +4,7 @@ const baseConfig = require('./webpack.base');
 const { merge } = require('webpack-merge');
 
 const config = {
-  mode: 'development',
+  target: 'node',
   devtool: 'source-map',
   entry: './src/index.ts',
   externals: [nodeExternals()],
