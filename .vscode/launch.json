@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "node",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outFiles": ["${workspaceFolder}/build/**/*.js"]
+        },
+        {
+            "name": "Client, Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+        },
+        {
+            "name": "node, in chrome",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node",
+            "outFiles": ["${workspaceFolder}/build/**/*.js"]
+        },
+    ]
+}
