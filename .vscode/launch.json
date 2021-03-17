@@ -1,31 +1,29 @@
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
-            "name": "node",
-            "port": 9229,
-            "request": "attach",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node",
-            "outFiles": ["${workspaceFolder}/build/**/*.js"]
-        },
-        {
-            "name": "Client, Chrome",
-            "type": "chrome",
+            "name": "Chrome",
             "request": "launch",
+            "type": "chrome",
             "url": "http://localhost:3000",
         },
         {
-            "name": "node, in chrome",
-            "port": 9229,
-            "request": "attach",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node",
-            "outFiles": ["${workspaceFolder}/build/**/*.js"]
-        },
+            "name": "Node",
+            "request": "launch",
+            "type": "node",
+            "runtimeExecutable": "npm",
+             "runtimeArgs": ["run-script", "dev"],
+        }
+    ],
+    "compounds": [
+        {
+          "name": "All",
+          "configurations": ["Node", "Chrome"],
+        }
+        
     ]
 }
